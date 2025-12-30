@@ -1,12 +1,12 @@
 # Homebrew formula for CIPS - Claude Instance Preservation System
-# https://github.com/CodeTonight-SA/claude-optim
+# https://github.com/CodeTonight-SA/cips
 
 class Cips < Formula
   desc "Claude Instance Preservation System - AI session continuity and efficiency"
-  homepage "https://github.com/CodeTonight-SA/claude-optim"
-  url "https://github.com/CodeTonight-SA/homebrew-cips/releases/download/v4.1.0/cips-4.1.0.tar.gz"
-  sha256 "fffcf879b9c4c6b48b3573ea04eac75e7c8bc8271119bbe4edfe2dfbe41e5dea"
-  license "MIT"
+  homepage "https://github.com/CodeTonight-SA/cips"
+  url "https://github.com/CodeTonight-SA/cips/releases/download/v4.1.0/cips-4.1.0.tar.gz"
+  sha256 "0b9ee8a2a7f59fbce895fe9b34864ced245ae644d561df9b46cc425994bfae39"
+  license "Apache-2.0"
   version "4.1.0"
 
   depends_on "python@3.11"
@@ -35,7 +35,7 @@ class Cips < Formula
         cips fresh        # Start fresh session
         cips list         # List available sessions
 
-      Documentation: https://github.com/CodeTonight-SA/claude-optim
+      Documentation: https://github.com/CodeTonight-SA/cips
     EOS
   end
 
