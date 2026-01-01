@@ -37,6 +37,10 @@ class Cips < Formula
         cips fresh        # Start fresh session
         cips list         # List available sessions
 
+      Optional: Semantic RL++ (pattern learning)
+        After setup, run: ~/.claude/scripts/bootstrap-semantic-rl.sh
+        Downloads embedding model (~90MB) for pattern detection.
+
       Documentation: https://github.com/CodeTonight-SA/cips
     EOS
   end
