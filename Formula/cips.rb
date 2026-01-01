@@ -14,7 +14,7 @@ class Cips < Formula
 
   def install
     bin.install "bin/cips"
-    (share/"cips").install Dir["share/cips/*"]
+    share.install "share/cips"
   end
 
   def caveats
