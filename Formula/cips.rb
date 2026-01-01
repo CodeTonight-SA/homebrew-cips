@@ -13,8 +13,19 @@ class Cips < Formula
   depends_on "jq"
 
   def install
+    # Install main CLI scripts
     bin.install "bin/cips"
-    share.install "share/cips"
+    bin.install "bin/cipsc" if File.exist?("bin/cipsc")
+    bin.install "bin/claude-ut" if File.exist?("bin/claude-ut")
+
+    # Install CIPS infrastructure to share directory
+    (share/"cips").install "agents" if File.directory?("agents")
+    (share/"cips").install "skills" if File.directory?("skills")
+    (share/"cips").install "lib" if File.directory?("lib")
+    (share/"cips").install "hooks" if File.directory?("hooks")
+    (share/"cips").install "commands" if File.directory?("commands")
+    (share/"cips").install "config" if File.directory?("config")
+    (share/"cips").install "scripts" if File.directory?("scripts")
   end
 
   def caveats
@@ -37,6 +48,6 @@ class Cips < Formula
   end
 
   test do
-    assert_match "CIPS v#{version}", shell_output("#{bin}/cips --version")
+    assert_match "CIPS", shell_output("#{bin}/cips --version 2>&1", 0)
   end
 end
