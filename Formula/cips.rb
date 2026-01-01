@@ -4,38 +4,32 @@
 class Cips < Formula
   desc "Claude Instance Preservation System - AI session continuity and efficiency"
   homepage "https://github.com/CodeTonight-SA/cips"
-  url "https://github.com/CodeTonight-SA/cips/archive/refs/tags/v4.1.0.tar.gz"
-  sha256 "00ac66ac215cc7a4a486421ec3e15c650dedd5073771159be25a2bf8a2299359"
+  url "https://github.com/CodeTonight-SA/cips/releases/download/v4.2.0/cips-4.2.0.tar.gz"
+  sha256 "3b12616e2382519e5bf8f59167000d2dd0fa6913d5e06dad2425f84e2866436e"
   license "Apache-2.0"
-  version "4.1.0"
+  version "4.2.0"
 
+  depends_on "node"
   depends_on "python@3.11"
   depends_on "jq"
 
   def install
-    # Install main CLI scripts
     bin.install "bin/cips"
-    bin.install "bin/cipsc" if File.exist?("bin/cipsc")
-    bin.install "bin/claude-ut" if File.exist?("bin/claude-ut")
-
-    # Install CIPS infrastructure to share directory
-    (share/"cips").install "agents" if File.directory?("agents")
-    (share/"cips").install "skills" if File.directory?("skills")
-    (share/"cips").install "lib" if File.directory?("lib")
-    (share/"cips").install "hooks" if File.directory?("hooks")
-    (share/"cips").install "commands" if File.directory?("commands")
-    (share/"cips").install "config" if File.directory?("config")
-    (share/"cips").install "scripts" if File.directory?("scripts")
+    (share/"cips").install Dir["share/cips/*"]
   end
 
   def caveats
     <<~EOS
       CIPS v#{version} installed!
 
+      Requires Claude Code. CIPS will offer to install it on first run, or:
+        npm install -g @anthropic-ai/claude-code
+
       Run 'cips' to begin. First run will:
+        - Install Claude Code (if needed)
         - Create ~/.claude/ directory
-        - Copy CIPS infrastructure (52+ skills, 29 agents)
-        - Launch /login wizard for identity setup
+        - Copy CIPS infrastructure (53 skills, 29 agents)
+        - Guide you through identity setup
 
       Quick commands after setup:
         cips              # Auto-resume or fresh session
@@ -48,6 +42,6 @@ class Cips < Formula
   end
 
   test do
-    assert_match "CIPS", shell_output("#{bin}/cips --version 2>&1", 0)
+    assert_match "CIPS v#{version}", shell_output("#{bin}/cips --version")
   end
 end
