@@ -5,7 +5,7 @@ class Cips < Formula
   desc "Claude Instance Preservation System - AI session continuity and efficiency"
   homepage "https://github.com/CodeTonight-SA/cips"
   url "https://github.com/CodeTonight-SA/cips/releases/download/v4.1.0/cips-4.1.0.tar.gz"
-  sha256 "0b9ee8a2a7f59fbce895fe9b34864ced245ae644d561df9b46cc425994bfae39"
+  sha256 "c610c8bf9dc905201a7ad538ccb6f94d28f7098e8160552f0bd62041a4d72858"
   license "Apache-2.0"
   version "4.1.0"
 
@@ -23,11 +23,8 @@ class Cips < Formula
 
       Run 'cips' to begin. First run will:
         - Create ~/.claude/ directory
-        - Copy CIPS infrastructure (46 skills, 28 agents, 55+ libraries)
-        - Guide you through identity setup
-
-      Team members: Set your team password in ~/.claude/.env
-        echo 'CIPS_TEAM_PASSWORD="your-password"' >> ~/.claude/.env
+        - Copy CIPS infrastructure (52+ skills, 29 agents)
+        - Launch /login wizard for identity setup
 
       Quick commands after setup:
         cips              # Auto-resume or fresh session
