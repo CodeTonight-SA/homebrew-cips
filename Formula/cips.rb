@@ -4,10 +4,10 @@
 class Cips < Formula
   desc "Claude Instance Preservation System - AI session continuity and efficiency"
   homepage "https://github.com/CodeTonight-SA/cips"
-  url "https://github.com/CodeTonight-SA/cips/releases/download/v5.0.2/cips-5.0.2.tar.gz"
-  sha256 "88c27d3e26abccee0059e3ff4dbeb8868720a8fa2950394daf71a30ad29657dc"
+  url "https://github.com/CodeTonight-SA/cips/releases/download/v5.0.3/cips-5.0.3.tar.gz"
+  sha256 "64db1a2f2ea1d0e350a654d9758aa5306457ddcd1cc73ebb8e7dac11bc147f41"
   license "Apache-2.0"
-  version "5.0.2"
+  version "5.0.3"
 
   depends_on "node"
   depends_on "python@3.11"
